@@ -8,14 +8,19 @@ const { errorHandler } = require('./middleware/errorMiddleware');
 
 const app = express();
 
-
+// ✅ CORS CONFIG (FIXED)
 app.use(cors({
-  origin: "https://team-task-manager-one-eta.vercel.app",
+  origin: [
+    "http://localhost:5173",
+    "https://team-task-manager-one-eta.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 
-
-app.options('/*', cors());
+// ✅ Preflight fix (SAFE VERSION)
+app.options(/.*/, cors());
 
 // Middleware
 app.use(express.json());
@@ -25,7 +30,7 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/projects', require('./routes/projectRoutes'));
 app.use('/api/tasks', require('./routes/taskRoutes'));
 
-// Root route (for testing)
+// Root
 app.get('/', (req, res) => {
   res.send('API is running...');
 });
@@ -40,10 +45,10 @@ const PORT = process.env.PORT || 5000;
 const startServer = async () => {
   try {
     await connectDB();
-    console.log("MongoDB Connected ✅");
+    console.log("MongoDB Connected");
 
     app.listen(PORT, () => {
-      console.log(`Server started on port ${PORT} 🚀`);
+      console.log(`Server started on port ${PORT}`);
     });
   } catch (error) {
     console.error("Server Error:", error.message);
