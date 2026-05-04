@@ -48,7 +48,7 @@ const AppContent = () => {
                 </PrivateRoute>
               } 
             />
-            <Route path="*" element={<Navigate to="/" />} />
+            <Route path="/" element={<Navigate to="/" />} />
           </Routes>
         </main>
       </div>
