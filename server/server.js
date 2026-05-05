@@ -1,5 +1,5 @@
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '.env') });
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const connectDB = require('./config/db');
@@ -21,15 +21,15 @@ app.use('/api/tasks', require('./routes/taskRoutes'));
 
 // Serve frontend (For production/Railway)
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/dist')));
+  const distPath = path.join(__dirname, '../client/dist');
 
-  app.get(/.*/, (req, res) =>
-    res.sendFile(
-      path.resolve(__dirname, '../', 'client', 'dist', 'index.html')
-    )
-  );
+  app.use(express.static(distPath));
+
+  app.get('/*', (req, res) => {
+  res.sendFile(path.join(distPath, 'index.html'));
+});
 } else {
-  app.get('/', (req, res) => res.send('Please set to production'));
+  app.get('/', (req, res) => res.send('API is running 🚀'));
 }
 
 // Error Handler
