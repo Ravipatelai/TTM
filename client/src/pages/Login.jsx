@@ -33,7 +33,7 @@ const Login = () => {
         {/* Header */}
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-800">
-            Welcome Back 👋
+            Welcome Back 
           </h2>
           <p className="mt-2 text-sm text-slate-500">
             Login to continue your journey

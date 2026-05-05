@@ -35,7 +35,7 @@ const Signup = () => {
         {/* Header */}
         <div className="text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-slate-800">
-            Create Account 🚀
+            Create Account 
           </h2>
           <p className="mt-2 text-sm text-slate-500">
             Join your team and start managing tasks
