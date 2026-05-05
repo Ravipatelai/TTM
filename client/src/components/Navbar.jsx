@@ -48,7 +48,7 @@ const Navbar = () => {
               </Link>
 
               <span className="text-sm text-slate-500 hidden lg:block">
-                Hi, <strong>{user.name}</strong>
+                Hi, <strong>{user.name}</strong> ({user.role})
               </span>
 
               <button
