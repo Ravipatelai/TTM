@@ -22,9 +22,9 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center text-lg sm:text-xl font-bold text-slate-800">
             <span className="bg-blue-600 text-white px-2 py-1 rounded-lg mr-2">
-              TM
+              TTM
             </span>
-            Task Manager
+            Team Task Manager
           </Link>
 
           {/* Desktop Menu */}
