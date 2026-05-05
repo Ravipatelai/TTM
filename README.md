@@ -30,7 +30,7 @@ npm run install:all
 ### 4. Running the Application
 You can run the backend and frontend separately for development:
 - **Terminal 1 (Backend)**: `cd server && node server.js`
-- **Terminal 2 (Frontend)**: `cd client && npm run dev`
+- **Terminal 2 (Frontend)**: `cd backend && npm run dev`
 
 Navigate to `http://localhost:5173` in your browser.
 
@@ -45,7 +45,7 @@ This repository is structured to be easily deployed on Railway as a single servi
    - `MONGO_URI` (Your MongoDB Atlas connection string)
    - `JWT_SECRET` (A strong random secret)
    - `NODE_ENV` = `production`
-5. Since `NODE_ENV` is set to `production`, the Express server will automatically serve the built React files from `client/dist`.
+5. Since `NODE_ENV` is set to `production`, the Express server will automatically serve the built React files from `backend/dist`.
 
 ## Features
 - **Role-Based Access**: Admins can create tasks and projects. Members can only update the status of tasks assigned to them.
